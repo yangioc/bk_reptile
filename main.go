@@ -28,8 +28,8 @@ func main() {
 		}
 	}()
 
-	handle_crontab := crontab.Init()
-	if err := handle_crontab.NewIntervalTask("test1", "*/5 * * * * ?", func() { fmt.Println(util.ServerTimeNow()) }); err != nil {
+	handle_crontab := crontab.New()
+	if err := handle_crontab.AddTask("test1", "*/5 * * * * ?", func() { fmt.Println(util.ServerTimeNow()) }); err != nil {
 		panic(err)
 	}
 
