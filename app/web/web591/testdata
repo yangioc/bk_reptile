@@ -1,0 +1,823 @@
+{
+    "breadcrumb": [
+        {
+            "id": 1,
+            "link": "/?region=1",
+            "name": "台北市",
+            "query": "region"
+        },
+        {
+            "id": 12,
+            "link": "/?region=1&section=12",
+            "name": "文山區",
+            "query": "section"
+        },
+        {
+            "id": 1,
+            "link": "/?region=1&section=12&kind=1",
+            "name": "整層住家",
+            "query": "kind"
+        }
+    ],
+    "browse": {
+        "mobile": 0,
+        "pc": 0
+    },
+    "costData": {
+        "active": 1,
+        "data": [
+            {
+                "key": "deposit",
+                "name": "押金",
+                "value": "二個月"
+            },
+            {
+                "key": "manageprice",
+                "name": "管理費",
+                "value": "無"
+            }
+        ],
+        "title": "租住本房屋會產生下面這些費用"
+    },
+    "dealText": "",
+    "dealTime": 0,
+    "deposit": "押金二個月",
+    "favData": {
+        "address": "台北市文山區羅斯福路五段192巷",
+        "area": "26.78",
+        "count": 0,
+        "kindTxt": "整層住家",
+        "layout": "4房2廳2衛",
+        "posttime": 1670482281,
+        "price": 30800,
+        "thumb": "https://img2.591.com.tw/house/2022/10/12/166554932777626504.jpg!190x150.water2.jpg",
+        "title": "萬隆捷運站靜巷3+1房美寓"
+    },
+    "houseDetail": {
+        "active": 1,
+        "key": "houseDetail",
+        "title": "房屋詳情",
+        "data": null
+    },
+    "info": [
+        {
+            "key": "layout",
+            "name": "格局",
+            "value": "4房2廳2衛"
+        },
+        {
+            "key": "area",
+            "name": "坪數",
+            "value": "26.78坪"
+        },
+        {
+            "key": "floor",
+            "name": "樓層",
+            "value": "4F/5F"
+        },
+        {
+            "key": "shape",
+            "name": "型態",
+            "value": "公寓"
+        }
+    ],
+    "infoData": {
+        "active": 1,
+        "data": [
+            {
+                "alias": "",
+                "cate": 2,
+                "key": "purpose",
+                "name": "法定用途",
+                "value": "見使照"
+            },
+            {
+                "alias": "",
+                "cate": 2,
+                "key": "buildArea",
+                "name": "建物面積",
+                "value": "見使照"
+            },
+            {
+                "alias": "",
+                "cate": 2,
+                "key": "hasCertificate",
+                "name": "產權登記",
+                "value": "已辦理"
+            }
+        ],
+        "hasCertificate": 2,
+        "title": "房屋已辦產權登記"
+    },
+    "kind": 1,
+    "linkInfo": {
+        "avatar": "https://images.591.com.tw/index/medium/no-photo-new.png",
+        "certificateStatus": 2,
+        "certificateTxt": "證書字號：109年登字第380271號\r\n公司名：租寓平台股份有限公司\r\n經紀業：租寓平台股份有限公司",
+        "chargeTxt": "$: 仲介, 收取服務費",
+        "imName": "周先生",
+        "imUid": 1110481,
+        "isTransferTel": 0,
+        "line": "https://line.me/ti/p/jgld8V3cR2",
+        "mobile": "0952-865-706",
+        "name": "仲介: 張小姐",
+        "phone": "02-27048895",
+        "rentNum": 0,
+        "role": 3,
+        "roleName": "仲介",
+        "roleTxt": "經紀業: 租寓平台股份有限公司",
+        "saleNum": 0,
+        "shopId": 0,
+        "shopStatus": 1,
+        "shopVolume": 0,
+        "skillCases": [],
+        "skillWork": [],
+        "tips": "有3人正在查看此房屋",
+        "uid": 1110481,
+        "warnmsg": 0
+    },
+    "navData": [
+        {
+            "active": 1,
+            "key": "positionRound",
+            "title": "位置與周邊",
+            "data": null
+        },
+        {
+            "active": 1,
+            "key": "service",
+            "title": "設備與服務",
+            "data": null
+        },
+        {
+            "active": 1,
+            "key": "remark",
+            "title": "屋況介紹",
+            "data": null
+        },
+        {
+            "active": 1,
+            "key": "houseDetail",
+            "title": "房屋詳情",
+            "data": null
+        },
+        {
+            "active": 1,
+            "key": "question",
+            "title": "房屋問答",
+            "data": null
+        }
+    ],
+    "positionRound": {
+        "active": 1,
+        "address": "文山區羅斯福路五段192巷",
+        "communityId": 0,
+        "communityName": "",
+        "data": [
+            {
+                "children": [
+                    {
+                        "distance": 230,
+                        "distanceTxt": "距房屋約230公尺",
+                        "name": "萬隆站",
+                        "type": "subway"
+                    },
+                    {
+                        "distance": 230,
+                        "distanceTxt": "距房屋約230公尺",
+                        "name": "萬隆站",
+                        "type": "bus"
+                    },
+                    {
+                        "distance": 278,
+                        "distanceTxt": "距房屋約278公尺",
+                        "name": "捷運萬隆站",
+                        "type": "bus"
+                    }
+                ],
+                "key": "traffic",
+                "name": "交通"
+            },
+            {
+                "children": [
+                    {
+                        "distance": 22,
+                        "distanceTxt": "距房屋約22公尺",
+                        "name": "上兵傳統包子饅頭店",
+                        "type": "restaurant"
+                    },
+                    {
+                        "distance": 369,
+                        "distanceTxt": "距房屋約369公尺",
+                        "name": "葳王股份有限公司",
+                        "type": "shop"
+                    },
+                    {
+                        "distance": 0,
+                        "distanceTxt": "附近有2家購物中心，20家餐廳",
+                        "name": "",
+                        "type": ""
+                    }
+                ],
+                "key": "live",
+                "name": "生活"
+            },
+            {
+                "children": [
+                    {
+                        "distance": 199,
+                        "distanceTxt": "距房屋約199公尺",
+                        "name": "臺北市文山區萬福國民小學",
+                        "type": "primary"
+                    },
+                    {
+                        "distance": 1042,
+                        "distanceTxt": "距房屋約1042公尺",
+                        "name": "臺北市私立靜心高級中學",
+                        "type": "secondary"
+                    },
+                    {
+                        "distance": 0,
+                        "distanceTxt": "附近有12所國小，2所國中",
+                        "name": "",
+                        "type": ""
+                    }
+                ],
+                "key": "education",
+                "name": "教育"
+            }
+        ],
+        "key": "positionRound",
+        "lat": "25.0033999",
+        "lng": "121.5378180",
+        "mapData": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "distance": 230,
+                                "lat": "25.0016840",
+                                "lng": "121.5390875",
+                                "name": "萬隆站",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 1215,
+                                "lat": "24.9928277",
+                                "lng": "121.5408272",
+                                "name": "景美站",
+                                "trading_area_distance": 50,
+                                "trading_area_id": 66243
+                            },
+                            {
+                                "distance": 1332,
+                                "lat": "25.0148296",
+                                "lng": "121.5342280",
+                                "name": "公館站",
+                                "trading_area_distance": 133,
+                                "trading_area_id": 66120
+                            }
+                        ],
+                        "key": "subway",
+                        "name": "捷運"
+                    },
+                    {
+                        "children": [
+                            {
+                                "distance": 230,
+                                "lat": "25.0016840",
+                                "lng": "121.5390875",
+                                "name": "萬隆站",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 278,
+                                "lat": "25.0013480",
+                                "lng": "121.5393900",
+                                "name": "捷運萬隆站",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 478,
+                                "lat": "25.0076560",
+                                "lng": "121.5384360",
+                                "name": "師大分部站",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 655,
+                                "lat": "24.9978398",
+                                "lng": "121.5357056",
+                                "name": "欣欣客運站",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 971,
+                                "lat": "25.0120940",
+                                "lng": "121.5385510",
+                                "name": "公館站",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            }
+                        ],
+                        "key": "bus",
+                        "name": "公車"
+                    }
+                ],
+                "key": "traffic",
+                "name": "交通"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "distance": 369,
+                                "lat": "25.0003896",
+                                "lng": "121.5393374",
+                                "name": "葳王股份有限公司",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 417,
+                                "lat": "25.0070990",
+                                "lng": "121.5371610",
+                                "name": "高登國際實業有限公司",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            }
+                        ],
+                        "key": "shop",
+                        "name": "購物"
+                    },
+                    {
+                        "children": [
+                            {
+                                "distance": 22,
+                                "lat": "25.0035730",
+                                "lng": "121.5378510",
+                                "name": "上兵傳統包子饅頭店",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 29,
+                                "lat": "25.0036296",
+                                "lng": "121.5377516",
+                                "name": "晨食早餐",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 61,
+                                "lat": "25.0034118",
+                                "lng": "121.5384247",
+                                "name": "牛洞食堂 萬隆店",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 64,
+                                "lat": "25.0038342",
+                                "lng": "121.5385467",
+                                "name": "港式萬隆燒臘",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 86,
+                                "lat": "25.0039336",
+                                "lng": "121.5384374",
+                                "name": "徐記餃子館",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 90,
+                                "lat": "25.0039698",
+                                "lng": "121.5373230",
+                                "name": "韓食村",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 92,
+                                "lat": "25.0031199",
+                                "lng": "121.5369594",
+                                "name": "三五食",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 93,
+                                "lat": "25.0041126",
+                                "lng": "121.5383134",
+                                "name": "欣田小館,麵店,客飯",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 102,
+                                "lat": "25.0035403",
+                                "lng": "121.5368141",
+                                "name": "韓先生餐盒／飲品",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 117,
+                                "lat": "25.0029820",
+                                "lng": "121.5388780",
+                                "name": "享悠",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 138,
+                                "lat": "25.0021857",
+                                "lng": "121.5375654",
+                                "name": "嘉湘滇緬小吃",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 141,
+                                "lat": "25.0025406",
+                                "lng": "121.5380985",
+                                "name": "江媽媽的飯",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 142,
+                                "lat": "25.0022242",
+                                "lng": "121.5383565",
+                                "name": "松山雞場鹹水雞 萬隆店",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 143,
+                                "lat": "25.0021762",
+                                "lng": "121.5373732",
+                                "name": "我們的窩",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 143,
+                                "lat": "25.0046498",
+                                "lng": "121.5380383",
+                                "name": "三角冰冰品專賣店",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 146,
+                                "lat": "25.0042022",
+                                "lng": "121.5366786",
+                                "name": "老李坊叙小吃店",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 152,
+                                "lat": "25.0020320",
+                                "lng": "121.5378793",
+                                "name": "大呼過癮 (萬隆店)",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 153,
+                                "lat": "25.0020243",
+                                "lng": "121.5377992",
+                                "name": "松竹屋平價日式食堂",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 154,
+                                "lat": "25.0020335",
+                                "lng": "121.5375974",
+                                "name": "麥味登文山饗食大亨店(羅斯福饗食大亨)",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 154,
+                                "lat": "25.0019992",
+                                "lng": "121.5376138",
+                                "name": "漢堡大師",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            }
+                        ],
+                        "key": "restaurant",
+                        "name": "餐飲"
+                    }
+                ],
+                "key": "live",
+                "name": "生活"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "distance": 199,
+                                "lat": "25.0048980",
+                                "lng": "121.5367507",
+                                "name": "臺北市文山區萬福國民小學",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 267,
+                                "lat": "25.0039259",
+                                "lng": "121.5403992",
+                                "name": "臺北市文山區武功國民小學",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 547,
+                                "lat": "24.9985863",
+                                "lng": "121.5388826",
+                                "name": "志清國小",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 1023,
+                                "lat": "24.9942840",
+                                "lng": "121.5390753",
+                                "name": "溪口國小",
+                                "trading_area_distance": 194,
+                                "trading_area_id": 66243
+                            },
+                            {
+                                "distance": 1088,
+                                "lat": "25.0118525",
+                                "lng": "121.5432268",
+                                "name": "臺北市大安區公館國民小學",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 1212,
+                                "lat": "25.0140674",
+                                "lng": "121.5354217",
+                                "name": "臺北市大安區銘傳國民小學",
+                                "trading_area_distance": 274,
+                                "trading_area_id": 66120
+                            },
+                            {
+                                "distance": 1329,
+                                "lat": "25.0016269",
+                                "lng": "121.5508457",
+                                "name": "臺北市文山區興德國民小學",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 1340,
+                                "lat": "24.9962181",
+                                "lng": "121.5484713",
+                                "name": "景興國小",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 1428,
+                                "lat": "25.0025415",
+                                "lng": "121.5521920",
+                                "name": "臺北市文山區興隆國民小學",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 1574,
+                                "lat": "24.9895171",
+                                "lng": "121.5407883",
+                                "name": "景美國小",
+                                "trading_area_distance": 414,
+                                "trading_area_id": 66243
+                            },
+                            {
+                                "distance": 1674,
+                                "lat": "25.0070220",
+                                "lng": "121.5217150",
+                                "name": "新北市私立育才國民小學",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 1732,
+                                "lat": "24.9989399",
+                                "lng": "121.5213727",
+                                "name": "秀朗國小",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            }
+                        ],
+                        "key": "primary",
+                        "name": "國小"
+                    },
+                    {
+                        "children": [
+                            {
+                                "distance": 1042,
+                                "lat": "24.9983721",
+                                "lng": "121.5470129",
+                                "name": "臺北市私立靜心高級中學",
+                                "trading_area_distance": 0,
+                                "trading_area_id": 0
+                            },
+                            {
+                                "distance": 1518,
+                                "lat": "25.0156024",
+                                "lng": "121.5311016",
+                                "name": "南華高中",
+                                "trading_area_distance": 194,
+                                "trading_area_id": 66120
+                            }
+                        ],
+                        "key": "secondary",
+                        "name": "國中"
+                    },
+                    {
+                        "children": [],
+                        "key": "university",
+                        "name": "大學"
+                    }
+                ],
+                "key": "education",
+                "name": "教育"
+            }
+        ],
+        "title": "位置與周邊"
+    },
+    "preference": {
+        "active": 0,
+        "data": [],
+        "title": "優選理由",
+        "footnote": ""
+    },
+    "price": "30,800",
+    "priceCache": [],
+    "priceCacheTxt": "",
+    "priceUnit": "元/月",
+    "publish": {
+        "id": 2,
+        "key": "new",
+        "name": "新發佈",
+        "postTime": "此房屋在15分鐘前發佈",
+        "updateTime": ""
+    },
+    "questionData": {
+        "active": 1,
+        "key": "question",
+        "title": "房屋問答",
+        "data": null
+    },
+    "regionId": 1,
+    "relieved": 0,
+    "remark": {
+        "active": 1,
+        "key": "remark",
+        "title": "屋況介紹",
+        "content": "<span style=\"font-size:18px;\"><b><span style=\"color:#4a4a4a;\">＃包租代管&nbsp;＃代租代管&nbsp;＃辦公租賃&nbsp;＃店面租賃&nbsp;＃空間規劃&nbsp;＃租案代尋<br /><br />▪️格局：4房&nbsp;2廳&nbsp;2衛&nbsp;2陽台<br />▪️其他費用：水電瓦斯依照帳單。<br /></span><span style=\"color:#4a4a4a;\"><br />🌱&nbsp;</span><span style=\"color:#4a4a4a;\">房子位於萬隆生活圈，羅斯福路靜巷內<br /></span><span style=\"color:#4a4a4a;\">🌞&nbsp;</span><span style=\"color:#4a4a4a;\">採光、通風良好，屋況溫馨舒適<br /><br /></span><span style=\"color:#4a4a4a;\">🍎&nbsp;距離公館、景美兩大商圈僅捷運一站之隔，<br />具備良好的教育環境、居住品質與便利的交通。<br /><br />🌳&nbsp;周邊有師大公館校區、市立圖書館、景美游泳池及多座公園，休閒機能佳。<br />而水源快速道路外側的河濱公園更是台北難得的大型綠地，<br />設有田徑場、籃球場、網球場、溜冰場、攀岩場及河濱自行車道。&nbsp;<br /><br />【交通】<br />🚈&nbsp;距萬隆捷運站，約200公尺<br />🚌&nbsp;距萬隆站約200公尺、師大分部站約480公尺<br />🚙&nbsp;開車近環河快速道路、福和橋、鄰羅斯福路<br /><br /><span style=\"font-family:Arial, 微軟正黑體, &amp;quot;\"><span style=\"font-size:18px;\"><span style=\"color:#4a4a4a;\">Hi!&nbsp;Welcome to Taiwan!!&nbsp;This is Zuyou.<br />We have real estate agents who are fluent in spoken &amp;&nbsp;written English.<br />If you are looking for a condo or apartment to rent,&nbsp;or even commercial<br />properties such as offices or storefronts,&nbsp;we can help!<br />Please feel free to contact us!&nbsp;If the person you call is not fluent in<br />English,&nbsp;please bear with us,&nbsp;as he or she will have one of our English<br />speaking agents contact you shortly.<br /><br />Thank you very much!!&nbsp;:)</span></span></span><br /><br />✄----------------------------------------<br /><br />歡迎直接致電約看喔&nbsp;Please Call<br />張小姐Mei：0952-865706<br />☎️服務專線：02-2704-8895<br />LINE ID：cleantonetone<br /><br />（免費帶看，看過喜歡、確定承租才收取服務費👛<br />⚠️591留言、即時訊息時常延遲或漏信，歡迎您直接致電預約看房！<br /><br />租寓平台股份有限公司🤓<br />租賃住宅管理人員(107)登字第001048號<br />經紀人證照(106)桃市經證字001630號</span></b></span>\r\n附近有便利商店、傳統市場、百貨公司、公園綠地、學校、醫療機構。\r\n本房屋近萬隆捷運站。",
+        "data": null
+    },
+    "rooms": {
+        "active": 0,
+        "key": "room",
+        "title": "所有房間",
+        "data": []
+    },
+    "sectionId": 12,
+    "service": {
+        "active": 1,
+        "desc": "最短租期一年，可隨時遷入",
+        "facility": [
+            {
+                "active": 1,
+                "key": "fridge",
+                "name": "冰箱"
+            },
+            {
+                "active": 0,
+                "key": "washer",
+                "name": "洗衣機"
+            },
+            {
+                "active": 0,
+                "key": "tv",
+                "name": "電視"
+            },
+            {
+                "active": 1,
+                "key": "cold",
+                "name": "冷氣"
+            },
+            {
+                "active": 1,
+                "key": "heater",
+                "name": "熱水器"
+            },
+            {
+                "active": 0,
+                "key": "bed",
+                "name": "床"
+            },
+            {
+                "active": 0,
+                "key": "closet",
+                "name": "衣櫃"
+            },
+            {
+                "active": 0,
+                "key": "fourth",
+                "name": "第四台"
+            },
+            {
+                "active": 0,
+                "key": "net",
+                "name": "網路"
+            },
+            {
+                "active": 1,
+                "key": "gas",
+                "name": "天然瓦斯"
+            },
+            {
+                "active": 0,
+                "key": "sofa",
+                "name": "沙發"
+            },
+            {
+                "active": 0,
+                "key": "table_chairs",
+                "name": "桌椅"
+            },
+            {
+                "active": 1,
+                "key": "balcony",
+                "name": "2陽台"
+            },
+            {
+                "active": 0,
+                "key": "lift",
+                "name": "電梯"
+            },
+            {
+                "active": 0,
+                "key": "park",
+                "name": "車位"
+            }
+        ],
+        "key": "service",
+        "rule": "不可養寵物",
+        "title": "設備與服務"
+    },
+    "shareInfo": {
+        "from": "來自【591租屋】",
+        "title": "台北市文山區，整層住家出租，30800元/月，詳情：",
+        "url": "https://www.591.com.tw/1R?salt=2amG&s="
+    },
+    "tags": [
+        {
+            "id": 17,
+            "value": "影片房屋"
+        },
+        {
+            "id": 2,
+            "value": "近捷運"
+        },
+        {
+            "id": 16,
+            "value": "新上架"
+        },
+        {
+            "id": 4,
+            "value": "近商圈"
+        },
+        {
+            "id": 5,
+            "value": "隨時可遷入"
+        },
+        {
+            "id": 6,
+            "value": "可開伙"
+        }
+    ],
+    "title": "萬隆捷運站靜巷3+1房美寓"
+}
