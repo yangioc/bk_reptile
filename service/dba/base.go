@@ -8,6 +8,7 @@ import (
 	"fmt"
 
 	"github.com/yangioc/bk_pack/dto"
+	"github.com/yangioc/bk_pack/proto/dtomsg"
 	"github.com/yangioc/bk_pack/util"
 )
 
@@ -38,7 +39,7 @@ func (self *Handle) ReceiveMessage(ctx context.Context, socketClient *socketclie
 		panic(err)
 	}
 
-	res := &dto.Dto_DBA_Res{}
+	res := &dtomsg.Dto_Msg_Res{}
 	if err := util.Unmarshal(msg.Payload, res); err != nil {
 		panic(err)
 	}
