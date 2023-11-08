@@ -1,6 +1,8 @@
 package config
 
-import "github.com/YWJSonic/ycore/driver/load/file/yamlloader"
+import (
+	"github.com/yangioc/bk_pack/yamlloader"
+)
 
 var EnvInfo *Env
 
