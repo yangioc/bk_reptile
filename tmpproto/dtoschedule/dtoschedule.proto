@@ -1,0 +1,12 @@
+syntax = "proto3";
+package dtoschedule;
+option go_package="../dtoschedule";
+
+message NewTaskReq {
+    string Name     = 1;
+    string Spec     = 2;
+    string CallBack = 3;
+
+}
+message NewTaskRes {
+}

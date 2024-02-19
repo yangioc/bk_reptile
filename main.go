@@ -5,6 +5,7 @@ import (
 	"bk_reptile/config"
 	"bk_reptile/messageq"
 	"bk_reptile/model/msg_nats"
+	"bk_reptile/tmpproto/dtoschedule"
 	"context"
 	"flag"
 	"fmt"
@@ -41,11 +42,11 @@ func main() {
 
 	// 核心服務
 	handle_app := app.New(*config.EnvInfo)
-	go func() {
-		if err := handle_app.Launch(); err != nil {
-			panic(err)
-		}
-	}()
+	// go func() {
+	// 	if err := handle_app.Launch(); err != nil {
+	// 		panic(err)
+	// 	}
+	// }()
 
 	addtask(handle_messageq)
 	// handle_app := app.New(*config.EnvInfo)
@@ -55,6 +56,7 @@ func main() {
 	// 	}
 	// }()
 
+	handle_app.Getefish()
 	msg_nats.New(context.TODO(), nil)
 
 	// handle_crontab := crontab.New()

@@ -2,8 +2,10 @@ package app
 
 import (
 	"bk_reptile/app/web/coolpc"
+	"bk_reptile/app/web/efish"
 	"bk_reptile/config"
 	"bk_reptile/service/dba"
+	"fmt"
 
 	"github.com/yangioc/bk_pack/util"
 )
@@ -26,7 +28,6 @@ func (self *Handle) Launch() error {
 }
 
 func (self *Handle) Getcoolpc() {
-
 	datas, err := coolpc.GetWeb()
 	if err != nil {
 		panic(err)
@@ -40,4 +41,23 @@ func (self *Handle) Getcoolpc() {
 			panic(err)
 		}
 	}
+}
+
+func (self *Handle) Getefish() {
+	// date_start := time.Date(2024, 1, 1, 0, 0, 0, 0, time.Local)
+	// date_end := time.Date(2024, 1, 30, 0, 0, 0, 0, time.Local)
+
+	// datas, err := efish.GetHistory("1012", date_start, date_end)
+	// if err != nil {
+	// 	panic(err)
+	// }
+
+	// F109,F200,F241,F261,F270,F300,F330,F360,F400,F500,F513,F545,F600,F630,F708,F709,F722,F730,F800,F820,F826,F880,F916,F936,F950
+	todayDatas, err := efish.GetToday("F109")
+	if err != nil {
+		panic(err)
+	}
+
+	// fmt.Println(datas, err)
+	fmt.Println(todayDatas)
 }
