@@ -6,7 +6,7 @@ require (
 	github.com/YWJSonic/ycore v0.0.0-20231106073042-de0a079b26f7
 	github.com/gorilla/feeds v1.1.2
 	github.com/nats-io/nats.go v1.33.0
-	github.com/yangioc/bk_pack v0.0.0-20231106133957-2d04d91f65d2
+	github.com/yangioc/bk_pack v0.0.0-20231108085624-1ac5ee8f4d5f
 	go.uber.org/atomic v1.9.0
 	golang.org/x/net v0.17.0
 	google.golang.org/protobuf v1.31.0
