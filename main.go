@@ -4,7 +4,8 @@ import (
 	"bk_reptile/app"
 	"bk_reptile/config"
 	"bk_reptile/messageq"
-	"bk_reptile/tmpproto/dtoschedule"
+	"bk_reptile/model/msg_nats"
+	"context"
 	"flag"
 	"fmt"
 	"os"
@@ -47,6 +48,21 @@ func main() {
 	}()
 
 	addtask(handle_messageq)
+	// handle_app := app.New(*config.EnvInfo)
+	// go func() {
+	// 	if err := handle_app.Launch(); err != nil {
+	// 		panic(err)
+	// 	}
+	// }()
+
+	msg_nats.New(context.TODO(), nil)
+
+	// handle_crontab := crontab.New()
+	// if err := handle_crontab.AddTask("test1", "*/5 * * * * ?", func() { fmt.Println(util.ServerTimeNow()) }); err != nil {
+	// 	panic(err)
+	// }
+
+	// handle_crontab.Run()
 
 	log.Info("Service Up.")
 	c := make(chan os.Signal, 1)

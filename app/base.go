@@ -40,5 +40,4 @@ func (self *Handle) Getcoolpc() {
 			panic(err)
 		}
 	}
-
 }
