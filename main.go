@@ -35,29 +35,19 @@ func main() {
 	}
 
 	// messageq 介面
-	handle_messageq := messageq.New()
-	if err := handle_messageq.Launch(*config.EnvInfo); err != nil {
-		panic(err)
-	}
+	// type1
+	handle_messageq := msg_nats.New(context.TODO(), *config.EnvInfo, nil)
+
+	//type2
+	// handle_messageq := messageq.New()
+	// if err := handle_messageq.Launch(*config.EnvInfo); err != nil {
+	// 	panic(err)
+	// }
+	// addtask(handle_messageq)
 
 	// 核心服務
-	handle_app := app.New(*config.EnvInfo)
-	// go func() {
-	// 	if err := handle_app.Launch(); err != nil {
-	// 		panic(err)
-	// 	}
-	// }()
-
-	addtask(handle_messageq)
-	// handle_app := app.New(*config.EnvInfo)
-	// go func() {
-	// 	if err := handle_app.Launch(); err != nil {
-	// 		panic(err)
-	// 	}
-	// }()
-
-	handle_app.Getefish()
-	msg_nats.New(context.TODO(), nil)
+	handle_app := app.New(*config.EnvInfo, handle_messageq)
+	handle_app.Launch()
 
 	// handle_crontab := crontab.New()
 	// if err := handle_crontab.AddTask("test1", "*/5 * * * * ?", func() { fmt.Println(util.ServerTimeNow()) }); err != nil {
@@ -65,6 +55,11 @@ func main() {
 	// }
 
 	// handle_crontab.Run()
+
+	// test
+	// handle_app.GetCoolpc()
+	// handle_app.GetEfish()
+	///////
 
 	log.Info("Service Up.")
 	c := make(chan os.Signal, 1)

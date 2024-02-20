@@ -147,3 +147,14 @@ func (self *Handler) SubGroupChanSync(subj, group string, ch chan *nats.Msg) err
 		fmt.Printf("SubGroupChanSync Reply: %s\n", msg.Data)
 	}
 }
+
+func (self *Handler) UnSub(subj string) error {
+	if sub, ok := self.subMap[subj]; !ok {
+		return errors.New("subj not found.")
+	} else {
+		if err := sub.Unsubscribe(); err != nil {
+			return err
+		}
+	}
+	return nil
+}

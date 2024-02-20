@@ -1,12 +1,13 @@
 package msg_nats
 
 import (
+	"bk_reptile/config"
 	"context"
 
 	"github.com/nats-io/nats.go"
 )
 
-func New(ctx context.Context, writeFlow chan []byte) *Handler {
+func New(ctx context.Context, config config.Env, writeFlow chan []byte) *Handler {
 	hdr := &Handler{
 		ctx:       ctx,
 		writeFlow: writeFlow,
@@ -20,7 +21,8 @@ func New(ctx context.Context, writeFlow chan []byte) *Handler {
 		// subscriberMap: make(map[string]func() error),
 	}
 
-	err := hdr.connect("nats://192.168.1.109:4223")
+	err := hdr.connect(config.Nats.Addr)
+	// err := hdr.connect("nats://192.168.1.109:4223")
 	if err != nil {
 		return nil
 	}

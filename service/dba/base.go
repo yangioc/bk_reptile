@@ -29,7 +29,11 @@ func New(setting config.Env) *Handle {
 }
 
 func (self *Handle) Launch() error {
-	self.websocket = websocket.NewClient(self)
+	if self.websocket == nil {
+		self.websocket = websocket.NewClient(self)
+	} else if self.websocket.Handler != nil {
+		self.websocket.Close(1000, "new socket connect")
+	}
 	return self.websocket.Launch(config.EnvInfo.Service.DBA.Addr)
 }
 

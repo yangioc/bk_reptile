@@ -1,8 +1,7 @@
 package coolpc
 
 import (
-	"bytes"
-	"os"
+	"net/http"
 	"strconv"
 	"strings"
 
@@ -14,21 +13,19 @@ import (
 )
 
 func GetWeb() ([]ItemInfo, error) {
-	// var err error
-	// var req *http.Request
-	// if req, err = http.NewRequest("GET", WebPage, nil); err != nil {
-	// 	return nil, err
-	// }
+	var err error
+	var req *http.Request
+	if req, err = http.NewRequest("GET", WebPage, nil); err != nil {
+		return nil, err
+	}
 
-	// var res *http.Response
-	// if res, err = http.DefaultClient.Do(req); err != nil {
-	// 	return nil, err
-	// }
-	// defer res.Body.Close()
-	mockdata, _ := os.ReadFile(`C:\Users\sony7\Documents\Soho\bunker_space\bk_system\bk_reptile\app\web\coolpc\evaluate.php`)
+	var res *http.Response
+	if res, err = http.DefaultClient.Do(req); err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
 
-	utf8Str, _ := util.Utf8ToBig5(mockdata)
-	loginHtml := html.NewTokenizer(bytes.NewBuffer(utf8Str))
+	loginHtml := html.NewTokenizer(res.Body)
 
 	// 撈取網頁資料
 	filters := map[types.TokenTypeName][]*myhtml.FilterObj{} // 網頁標籤資料
@@ -62,8 +59,8 @@ func GetWeb() ([]ItemInfo, error) {
 	for idx, filter := range filters["select"] {
 		idx++
 		key := util.Sprintf("c%d", idx)
-		typeName := typeMap[idx]            // 商品類型
-		price_slice := dataMap[key].([]int) // 價格陣列
+		typeName := typeMap[idx]               // 商品類型
+		price_slice := dataMap[key].([]string) // 價格陣列
 		for subidx, token := range filter.SubRes {
 			if token.Data == "option" {
 				for _, attr := range token.Attr {
@@ -71,13 +68,13 @@ func GetWeb() ([]ItemInfo, error) {
 					price := price_slice[v]
 
 					// 有價格的才是實際商品
-					if price > 0 {
+					if price != "0" {
 						spliteIdx := strings.LastIndex(filter.SubContent[subidx], ",")
 						item := ItemInfo{
 							Date:          dateStr,
 							UpdateTime:    datetime,
 							TypeName:      typeName,
-							TypeId:        idx,
+							TypeId:        key,
 							Price:         price,
 							Content:       filter.SubContent[subidx][:spliteIdx],
 							OriginContent: filter.SubContent[subidx],
@@ -117,14 +114,10 @@ func spliteScriptData(data string) map[string]interface{} {
 		}
 
 		// 資料解析
-		values := []int{}
+		values := []string{}
 		valueSplite := strings.Split(dataStr[idx+2:len(dataStr)-1], ",")
 		for _, valueStr := range valueSplite {
-			val, err := strconv.Atoi(valueStr)
-			if err != nil {
-				val = -1
-			}
-			values = append(values, val)
+			values = append(values, valueStr)
 		}
 
 		res[key] = values

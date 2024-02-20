@@ -8,8 +8,14 @@ import (
 	"nhooyr.io/websocket"
 )
 
+type IClient interface {
+	socketclient.IHandle
+
+	Launch(addr string) error
+}
+
 type Client struct {
-	socket   *socketclient.Handler
+	*socketclient.Handler
 	callback socketclient.SocketManagerCallBack
 }
 
@@ -32,10 +38,6 @@ func (socket *Client) Launch(addr string) error {
 		return fmt.Errorf("[Websocket][Launch] Listen Error addr: %v", addr)
 	}
 
-	socket.socket = socketclient.New(ctx, conn, socket.callback)
-	return socket.socket.Listen()
-}
-
-func (socket *Client) Send(ctx context.Context, message []byte) error {
-	return socket.socket.Send(ctx, message)
+	socket.Handler = socketclient.New(ctx, conn, socket.callback)
+	return socket.Handler.Listen()
 }
