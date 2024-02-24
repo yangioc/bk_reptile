@@ -27,7 +27,7 @@ WORKDIR /app
 
 # copy binary into container
 COPY --from=builder $GO_WORKDIR/bk_reptile bk_reptile
-COPY ./env.yaml .
+COPY ./env.yaml.temp ./env.yaml
 
 CMD ["./bk_reptile","--config","./env.yml"]
 
