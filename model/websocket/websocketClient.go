@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/yangioc/bk_pack/log"
 	"nhooyr.io/websocket"
 )
 
@@ -39,5 +40,7 @@ func (socket *Client) Launch(addr string) error {
 	}
 
 	socket.Handler = socketclient.New(ctx, conn, socket.callback)
+	log.Infof("websocket conn to: %s", addr)
+	defer log.Infof("websocket diconn: %s", addr)
 	return socket.Handler.Listen()
 }
