@@ -2,12 +2,10 @@ package efish
 
 import (
 	"bk_reptile/tmptool"
-	"bytes"
 	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
-	"os"
 	"strconv"
 	"strings"
 	"time"
@@ -17,12 +15,15 @@ import (
 	"golang.org/x/net/html"
 )
 
-type Handle struct {
+type DataStruct struct {
+	Key      string `json:"_key"`
+	Location string
+	Date     string
 	TitleRow []string
 	DataRow  [][]string
 }
 
-func GetHistory(fishId string, date_start, date_end time.Time) (*Handle, error) {
+func GetHistory(fishId string, date_start, date_end time.Time) (*DataStruct, error) {
 	yearl := strconv.Itoa(tmptool.YearConver(date_start.Year(), "tw"))
 	monthl := strconv.Itoa(int(date_start.Month()))
 	dayl := strconv.Itoa(date_start.Day())
@@ -121,49 +122,46 @@ func GetHistory(fishId string, date_start, date_end time.Time) (*Handle, error) 
 		}
 		datas = append(datas, rowStr)
 	}
-	res := &Handle{
+	res := &DataStruct{
 		TitleRow: titles,
 		DataRow:  datas,
 	}
 	return res, nil
 }
 
-func GetToday(marketId string) (*Handle, error) {
-	// nowTime := time.Now()
-	// year := strconv.Itoa(tmptool.YearConver(nowTime.Year(), "tw"))
-	// month := strconv.Itoa(int(nowTime.Month()))
-	// day := strconv.Itoa(nowTime.Day())
+func GetDayFishByMarket(marketId string, date time.Time) (*DataStruct, error) {
+	year := strconv.Itoa(tmptool.YearConver(date.Year(), "tw"))
+	month := strconv.Itoa(int(date.Month()))
+	day := strconv.Itoa(date.Day())
 
-	// // dateStrl := fmt.Sprintf("%s.%s.%s", year, month, day)
-	// dateStrl := fmt.Sprintf("%s.%s.%s", "113", "1", "31")
+	// dateStrl := fmt.Sprintf("%s.%s.%s", year, month, day)
+	dateStrl := fmt.Sprintf("%s.%s.%s", year, month, day)
 
-	// data := url.Values{}
-	// data.Set("dateStr", dateStrl)
-	// data.Set("calendarType", "tw")
-	// data.Set("year", year)
-	// data.Set("month", month)
-	// data.Set("day", day)
-	// data.Set("mid", marketId)
-	// data.Set("numbers", "999") // 魚類編號 999=全種類
-	// data.Set("orderby", "i")
+	data := url.Values{}
+	data.Set("dateStr", dateStrl)
+	data.Set("calendarType", "tw")
+	data.Set("year", year)
+	data.Set("month", month)
+	data.Set("day", day)
+	data.Set("mid", marketId)
+	data.Set("numbers", "999") // 魚類編號 999=全種類
+	data.Set("orderby", "i")
 
-	// var err error
-	// var req *http.Request
-	// WebPage := "https://efish.fa.gov.tw/efish/statistics/daysinglemarketmultifish.htm"
-	// if req, err = http.NewRequest(http.MethodPost, WebPage, strings.NewReader(data.Encode())); err != nil {
-	// 	return nil, err
-	// }
+	var err error
+	var req *http.Request
+	WebPage := "https://efish.fa.gov.tw/efish/statistics/daysinglemarketmultifish.htm"
+	if req, err = http.NewRequest(http.MethodPost, WebPage, strings.NewReader(data.Encode())); err != nil {
+		return nil, err
+	}
 
-	// req.Header.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36")
-	// req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36")
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 
-	// fmt.Println(req.PostForm)
-
-	// var res *http.Response
-	// if res, err = http.DefaultClient.Do(req); err != nil {
-	// 	return nil, err
-	// }
-	// defer res.Body.Close()
+	var httpRes *http.Response
+	if httpRes, err = http.DefaultClient.Do(req); err != nil {
+		return nil, err
+	}
+	defer httpRes.Body.Close()
 
 	// body, _ := io.ReadAll(res.Body)
 
@@ -171,10 +169,10 @@ func GetToday(marketId string) (*Handle, error) {
 
 	// return nil, nil
 
-	body, _ := os.ReadFile("./efishToday.log")
-	htmlRes := bytes.NewBuffer(body)
+	// body, _ := os.ReadFile("./efishToday.log")
+	// htmlRes := bytes.NewBuffer(body)
 
-	loginHtml := html.NewTokenizer(htmlRes)
+	loginHtml := html.NewTokenizer(httpRes.Body)
 
 	// 撈取網頁資料
 	filters := map[types.TokenTypeName][]*myhtml.FilterObjnewSub{} // 網頁標籤資料
@@ -215,7 +213,9 @@ func GetToday(marketId string) (*Handle, error) {
 		datas = append(datas, rowStr)
 
 	}
-	res := &Handle{
+	res := &DataStruct{
+		Location: marketId,
+		Date:     date.Format("2006-01-02"),
 		TitleRow: titles,
 		DataRow:  datas,
 	}

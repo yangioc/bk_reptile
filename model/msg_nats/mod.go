@@ -46,6 +46,10 @@ func (self *Handler) Pub(subj string, data []byte) error {
 ///////////////////////////////////////////////////////
 
 func (self *Handler) Sub(subj string, cb func(msg *nats.Msg)) error {
+	if _, ok := self.subMap[subj]; ok {
+		return errors.New("subj already exist.")
+	}
+
 	sub, err := self.conn.Subscribe(subj, cb)
 	if err != nil {
 		return err
@@ -56,6 +60,10 @@ func (self *Handler) Sub(subj string, cb func(msg *nats.Msg)) error {
 }
 
 func (self *Handler) SubChan(subj string, ch chan *nats.Msg) error {
+	if _, ok := self.subMap[subj]; ok {
+		return errors.New("subj already exist.")
+	}
+
 	sub, err := self.conn.ChanSubscribe(subj, ch)
 	if err != nil {
 		return err
@@ -66,6 +74,10 @@ func (self *Handler) SubChan(subj string, ch chan *nats.Msg) error {
 }
 
 func (self *Handler) SubGroup(subj, group string, cb func(msg *nats.Msg)) error {
+	if _, ok := self.subMap[subj]; ok {
+		return errors.New("subj already exist.")
+	}
+
 	sub, err := self.conn.QueueSubscribe(subj, group, cb)
 	if err != nil {
 		return err
@@ -76,6 +88,10 @@ func (self *Handler) SubGroup(subj, group string, cb func(msg *nats.Msg)) error 
 }
 
 func (self *Handler) SubGroupChan(subj, group string, ch chan *nats.Msg) error {
+	if _, ok := self.subMap[subj]; ok {
+		return errors.New("subj already exist.")
+	}
+
 	sub, err := self.conn.ChanQueueSubscribe(subj, group, ch)
 	if err != nil {
 		return err
@@ -86,6 +102,10 @@ func (self *Handler) SubGroupChan(subj, group string, ch chan *nats.Msg) error {
 }
 
 func (self *Handler) SubSync(subj string) error {
+	if _, ok := self.subMap[subj]; ok {
+		return errors.New("subj already exist.")
+	}
+
 	sub, err := self.conn.SubscribeSync(subj)
 	if err != nil {
 		return err
@@ -107,6 +127,10 @@ func (self *Handler) SubSync(subj string) error {
 }
 
 func (self *Handler) SubGroupSync(subj, group string, cb func(msg *nats.Msg)) error {
+	if _, ok := self.subMap[subj]; ok {
+		return errors.New("subj already exist.")
+	}
+
 	sub, err := self.conn.QueueSubscribeSync(subj, group)
 	if err != nil {
 		return err
@@ -128,6 +152,10 @@ func (self *Handler) SubGroupSync(subj, group string, cb func(msg *nats.Msg)) er
 }
 
 func (self *Handler) SubGroupChanSync(subj, group string, ch chan *nats.Msg) error {
+	if _, ok := self.subMap[subj]; ok {
+		return errors.New("subj already exist.")
+	}
+
 	sub, err := self.conn.QueueSubscribeSyncWithChan(subj, group, ch)
 	if err != nil {
 		return err

@@ -8,6 +8,7 @@ import (
 	"fmt"
 
 	"github.com/yangioc/bk_pack/dto"
+	"github.com/yangioc/bk_pack/log"
 	"github.com/yangioc/bk_pack/proto/dtomsg"
 	"github.com/yangioc/bk_pack/util"
 )
@@ -17,6 +18,7 @@ type IHandle interface {
 	OnClose(token string)
 
 	CreateCoolpcData(uuid string, payload []byte) error
+	CreateEfish(uuid string, payload []byte) error
 }
 
 type Handle struct {
@@ -34,6 +36,9 @@ func (self *Handle) Launch() error {
 	} else if self.websocket.Handler != nil {
 		self.websocket.Close(1000, "new socket connect")
 	}
+
+	log.Infof("websocket conn to: %s", config.EnvInfo.Service.DBA.Addr)
+	defer log.Infof("websocket diconn: %s", config.EnvInfo.Service.DBA.Addr)
 	return self.websocket.Launch(config.EnvInfo.Service.DBA.Addr)
 }
 

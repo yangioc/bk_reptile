@@ -8,19 +8,33 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
+func (self *Handle) messageAll(topic string) {
+	if err := self.messageQ.Sub(topic, self.msgallres); err != nil {
+		panic(err)
+	}
+}
+func (self *Handle) msgallres(msg *nats.Msg) {
+	log.Debug("task:" + msg.Subject)
+}
+
 func (self *Handle) messageSub() error {
+	topic := "reptile.command.>"
+
+	// self.messageAll(topic)
+
 	readChan := make(chan *nats.Msg, 1024)
-	defer close(readChan)
-	if err := self.messageQ.SubChan("reptile.command.>", readChan); err != nil {
+	// defer close(readChan)
+	if err := self.messageQ.SubChan(topic, readChan); err != nil {
 		log.Errorf("messageHandle: %v", err)
 		return err
 	}
+	log.Infof("[MessageQ][Subscribe] %s", topic)
 	defer func() {
-		if err := self.messageQ.UnSub("reptile.command.>"); err != nil {
+		if err := self.messageQ.UnSub(topic); err != nil {
 			log.Errorf("app messageSub UnSub error: %v", err)
 		}
 
-		log.Infof("UnSub reptile.command.>")
+		log.Infof("[MessageQ][UnSubscribe] %s", topic)
 		// TODO:可能需要清空chan流程
 	}()
 
@@ -31,8 +45,6 @@ func (self *Handle) messageSub() error {
 			return ctxDoneError
 
 		case natsMsg := <-readChan:
-			log.Info(natsMsg.Data)
-
 			msg, err := util.MsgDecode(natsMsg.Data)
 			if err != nil {
 				panic(err)
@@ -47,6 +59,9 @@ func (self *Handle) messageSub() error {
 			switch dtoMsg.Request {
 			case "getefish":
 				self.GetEfish()
+
+			case "getoldefish":
+				// self.GetOldEfish()
 
 			case "getcoolpc":
 				self.GetCoolpc()

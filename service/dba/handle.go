@@ -54,3 +54,30 @@ func (self *Handle) resChanLoadAndDelete(uuid string) (chan *dtomsg.Dto_Msg_Res,
 	}
 	return resChan.(chan *dtomsg.Dto_Msg_Res), true
 }
+
+func (self *Handle) CreateEfish(uuid string, payload []byte) error {
+	dbaReq, err := proto.Marshal(&dtomsg.Dto_Msg{
+		Type:    "notic",
+		Request: "createefish",
+		Data:    payload,
+	})
+	if err != nil {
+		panic(err)
+	}
+
+	msg, err := util.MsgEncode(&dtomsg.Dto_Base{
+		UUID:           uuid,
+		StartTime:      util.ServerTimeNow().UnixMicro(),
+		ExpirationTime: util.ServerTimeNow().Add(5 * time.Second).UTC().UnixMicro(),
+		Payload:        dbaReq,
+	})
+	if err != nil {
+		panic(err)
+	}
+
+	if err := self.websocket.Send(context.TODO(), msg); err != nil {
+		panic(err)
+	}
+
+	return nil
+}

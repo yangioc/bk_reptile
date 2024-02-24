@@ -6,6 +6,7 @@ import (
 	"bk_reptile/service/dba"
 	"context"
 	"errors"
+	"time"
 
 	"github.com/yangioc/bk_pack/log"
 )
@@ -35,18 +36,19 @@ func (self *Handle) Launch() {
 			if err := self.dba.Launch(); err != nil {
 				log.Error(err)
 			}
+			time.Sleep(time.Second * 5)
 		}
 	}()
 
-	// go func() {
-	// 	for {
-	// 		err := self.messageSub()
-	// 		if err == ctxDoneError {
-	// 			return
-	// 		} else {
-	// 			log.Errorf("app error: %v", err)
-	// 		}
-	// 	}
-	// }()
+	go func() {
+		for {
+			err := self.messageSub()
+			if err == ctxDoneError {
+				return
+			} else {
+				log.Errorf("app error: %v", err)
+			}
+		}
+	}()
 
 }
