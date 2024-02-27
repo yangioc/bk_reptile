@@ -2,7 +2,6 @@ package stockdao
 
 // 大盤統計
 type Stock_price struct {
-	Key                string `json:"_key"`
 	Date               string `json:"date" gorm:"column:date"`
 	Stock_name         string `json:"stock_name" gorm:"column:stock_name"`                 // 統計類型名稱
 	Stock_total_amount int    `json:"stock_total_amount" gorm:"column:stock_total_amount"` // 統計總成交金額

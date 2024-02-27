@@ -11,19 +11,10 @@ import (
 	"github.com/YWJSonic/ycore/util"
 )
 
-type CompanyStockAnalysis struct {
-	Stat       string          `json:"stat"`
-	Date       string          `json:"date"`
-	Title      string          `json:"title"`
-	Fields     []string        `json:"fields"`
-	Data       [][]interface{} `json:"data"`
-	SelectType string          `json:"selectType"`
-	Total      int64           `json:"total"`
-}
-
 func GetStockAnalysis(date time.Time) ([]*stockdao.Company_stock_analysis, error) {
+	dateStr := date.Format("20060102")
 	res := []*stockdao.Company_stock_analysis{}
-	url := fmt.Sprintf("https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?date=%s&selectType=ALL&response=json&_=%d", date.Format("20060102"), util.ServerTimeNow().UnixMilli())
+	url := fmt.Sprintf("https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?date=%s&selectType=ALL&response=json&_=%d", dateStr, util.ServerTimeNow().UnixMilli())
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		fmt.Println(date)
@@ -43,9 +34,13 @@ func GetStockAnalysis(date time.Time) ([]*stockdao.Company_stock_analysis, error
 		return res, err
 	}
 
-	payload := &CompanyStockAnalysis{}
+	payload := &stockdao.CompanyStockAnalysis{}
 	if err := json.Unmarshal(body, payload); err != nil {
 		return res, err
+	}
+
+	if len(payload.Data) == 0 {
+		return res, fmt.Errorf("Date: %s no data.", dateStr)
 	}
 
 	for _, data := range payload.Data {

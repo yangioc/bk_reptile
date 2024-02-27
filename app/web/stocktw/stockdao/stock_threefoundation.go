@@ -2,7 +2,6 @@ package stockdao
 
 // 三大法人總買賣
 type Stock_threefoundation struct {
-	Key              string `json:"_key"`
 	Date             string `json:"date" gorm:"column:date"`
 	Stock_three_name string `json:"stock_three_name" gorm:"column:stock_three_name"` // 統計類型名稱
 	Buy              int    `json:"buy" gorm:"column:buy"`                           // 總買

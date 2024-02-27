@@ -16,7 +16,6 @@ import (
 )
 
 type DataStruct struct {
-	Key      string `json:"_key"`
 	Location string
 	Date     string
 	TitleRow []string

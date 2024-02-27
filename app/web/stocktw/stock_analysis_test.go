@@ -19,7 +19,7 @@ func Test_GetStockAnalysis(t *testing.T) {
 }
 
 func Test_CompanyStockAnalysis(t *testing.T) {
-	payload := &CompanyStockAnalysis{}
+	payload := &stockdao.CompanyStockAnalysis{}
 	if err := json.Unmarshal([]byte(mock_StockAnalysis), payload); err != nil {
 		log.Fatalln(err)
 	}

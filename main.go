@@ -57,9 +57,11 @@ func main() {
 	// handle_crontab.Run()
 
 	// test
+	// time.Sleep(time.Second * 5)
 	// handle_app.GetCoolpc()
 	// handle_app.GetEfish()
 	// handle_app.GetOldEfish("1012", time.Date(2024, 2, 10, 0, 0, 0, 0, time.UTC), time.Date(2024, 2, 19, 0, 0, 0, 0, time.UTC))
+	// handle_app.GetStock()
 	///////
 
 	log.Info("Service Up.")

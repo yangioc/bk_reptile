@@ -92,26 +92,54 @@ func (self *Handle) GetStock() {
 		return
 	}
 
-	resStockAnalysis, err := stocktw.GetStockAnalysis(thisDay)
-	if err != nil {
-		panic(err)
-	}
-	resIndex, resMarket, resClosePrice, err := stocktw.GetStockIndex(thisDay)
-	if err != nil {
-		panic(err)
-	}
-	resThreefoundationTotal, resThreefoundationStockDay, err := stocktw.GetThreefoundation(thisDay)
+	dateStr := thisDay.Format("2006-01-02")
+	stockAnalysis, err := stocktw.GetStockAnalysis(thisDay)
 	if err != nil {
 		panic(err)
 	}
 
+	stockAnalysisPayload := map[string]interface{}{
+		"_key":  dateStr,
+		"datas": stockAnalysis,
+	}
+
+	stockIndex, stockMarket, stockClosePrice, err := stocktw.GetStockIndex(thisDay)
+	if err != nil {
+		panic(err)
+	}
+	stockIndexPayload := map[string]interface{}{
+		"_key":  dateStr,
+		"datas": stockIndex,
+	}
+	stockMarketPayload := map[string]interface{}{
+		"_key":  dateStr,
+		"datas": stockMarket,
+	}
+	stockClosePricePayload := map[string]interface{}{
+		"_key":  dateStr,
+		"datas": stockClosePrice,
+	}
+
+	stockThreefoundationTotal, stockThreefoundationStockDay, err := stocktw.GetThreefoundation(thisDay)
+	if err != nil {
+		panic(err)
+	}
+	stockThreefoundationTotalPayload := map[string]interface{}{
+		"_key":  dateStr,
+		"datas": stockThreefoundationTotal,
+	}
+	stockThreefoundationStockDayPayload := map[string]interface{}{
+		"_key":  dateStr,
+		"datas": stockThreefoundationStockDay,
+	}
+
 	datas := map[string]interface{}{
-		"StockAnalysis":           resStockAnalysis,
-		"Index":                   resIndex,
-		"Market":                  resMarket,
-		"ClosePrice":              resClosePrice,
-		"ThreefoundationTotal":    resThreefoundationTotal,
-		"ThreefoundationStockDay": resThreefoundationStockDay,
+		"StockAnalysis":           stockAnalysisPayload,
+		"Index":                   stockIndexPayload,
+		"Market":                  stockMarketPayload,
+		"ClosePrice":              stockClosePricePayload,
+		"ThreefoundationTotal":    stockThreefoundationTotalPayload,
+		"ThreefoundationStockDay": stockThreefoundationStockDayPayload,
 	}
 
 	for key, data := range datas {
@@ -120,6 +148,8 @@ func (self *Handle) GetStock() {
 		if err != nil {
 			panic(err)
 		}
+
+		log.Infof("%s data size :%v", key, len(payload))
 
 		switch key {
 		case "StockAnalysis":
@@ -173,22 +203,22 @@ func (self *Handle) GetStockHistory(date_start, date_end time.Time) {
 		if err != nil {
 			panic(err)
 		}
-		resIndex, resMarket, resClosePrice, err := stocktw.GetStockIndex(newDate)
-		if err != nil {
-			panic(err)
-		}
-		resThreefoundationTotal, resThreefoundationStockDay, err := stocktw.GetThreefoundation(newDate)
-		if err != nil {
-			panic(err)
-		}
+		// resIndex, resMarket, resClosePrice, err := stocktw.GetStockIndex(newDate)
+		// if err != nil {
+		// 	panic(err)
+		// }
+		// resThreefoundationTotal, resThreefoundationStockDay, err := stocktw.GetThreefoundation(newDate)
+		// if err != nil {
+		// 	panic(err)
+		// }
 
 		datas := map[string]interface{}{
-			"StockAnalysis":           resStockAnalysis,
-			"Index":                   resIndex,
-			"Market":                  resMarket,
-			"ClosePrice":              resClosePrice,
-			"ThreefoundationTotal":    resThreefoundationTotal,
-			"ThreefoundationStockDay": resThreefoundationStockDay,
+			"StockAnalysis": resStockAnalysis,
+			// "Index":                   resIndex,
+			// "Market":                  resMarket,
+			// "ClosePrice":              resClosePrice,
+			// "ThreefoundationTotal":    resThreefoundationTotal,
+			// "ThreefoundationStockDay": resThreefoundationStockDay,
 		}
 
 		for key, data := range datas {

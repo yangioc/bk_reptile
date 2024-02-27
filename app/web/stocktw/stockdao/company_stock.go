@@ -2,7 +2,6 @@ package stockdao
 
 // 個股每日收盤價
 type Company_stock struct {
-	Key                string  `json:"_key"`
 	Date               string  `json:"date" gorm:"column:date"`
 	Company_id         string  `json:"company_id" gorm:"column:company_id"`                 // 個股編號
 	Company_name       string  `json:"company_name" gorm:"column:company_name"`             // 個股名稱

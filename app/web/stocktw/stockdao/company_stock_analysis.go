@@ -1,8 +1,17 @@
 package stockdao
 
 // 個股日本益比、殖利率及股價淨值比
+type CompanyStockAnalysis struct {
+	Stat       string          `json:"stat"`
+	Date       string          `json:"date"`
+	Title      string          `json:"title"`
+	Fields     []string        `json:"fields"`
+	Data       [][]interface{} `json:"data"`
+	SelectType string          `json:"selectType"`
+	Total      int64           `json:"total"`
+}
+
 type Company_stock_analysis struct {
-	Key                 string  `json:"_key"`
 	Date                string  `json:"date" gorm:"column:date"`
 	Company_id          string  `json:"company_id" gorm:"column:company_id"`                   // 個股編號
 	Company_name        string  `json:"company_name" gorm:"column:company_name"`               // 個股名稱

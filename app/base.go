@@ -34,7 +34,7 @@ func (self *Handle) Launch() {
 	go func() {
 		for {
 			if err := self.dba.Launch(); err != nil {
-				log.Error(err)
+				log.Errorf("[App]websocket err: %v", err)
 			}
 			time.Sleep(time.Second * 5)
 		}
