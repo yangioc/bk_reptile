@@ -1,41 +1,13 @@
 package dba
 
 import (
-	"context"
 	"fmt"
-	"time"
 
 	"github.com/yangioc/bk_pack/proto/dtomsg"
-	"github.com/yangioc/bk_pack/util"
-	"google.golang.org/protobuf/proto"
 )
 
 func (self *Handle) CreateCoolpcData(uuid string, payload []byte) error {
-
-	dbaReq, err := proto.Marshal(&dtomsg.Dto_Msg{
-		Type:    "notice",
-		Request: "create.coolpcdata",
-		Data:    payload,
-	})
-	if err != nil {
-		panic(err)
-	}
-
-	msg, err := util.MsgEncode(&dtomsg.Dto_Base{
-		UUID:           uuid,
-		StartTime:      util.ServerTimeNow().UnixMicro(),
-		ExpirationTime: util.ServerTimeNow().Add(5 * time.Second).UTC().UnixMicro(),
-		Payload:        dbaReq,
-	})
-	if err != nil {
-		panic(err)
-	}
-
-	if err := self.websocket.Send(context.TODO(), msg); err != nil {
-		panic(err)
-	}
-
-	return nil
+	return self.CommonCreate(uuid, "notice", "create.coolpcdata", payload)
 }
 
 func (self *Handle) resChanNew(uuid string) (chan *dtomsg.Dto_Msg_Res, error) {
