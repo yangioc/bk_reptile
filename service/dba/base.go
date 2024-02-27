@@ -18,6 +18,13 @@ type IHandle interface {
 
 	CreateCoolpcData(uuid string, payload []byte) error
 	CreateEfish(uuid string, payload []byte) error
+
+	CreateStockAnalysis(uuid string, payload []byte) error
+	CreateStockIndex(uuid string, payload []byte) error
+	CreateStockMarket(uuid string, payload []byte) error
+	CreateStockClosePrice(uuid string, payload []byte) error
+	CreateStockThreefoundationTotal(uuid string, payload []byte) error
+	CreateThreefoundationStockDay(uuid string, payload []byte) error
 }
 
 type Handle struct {

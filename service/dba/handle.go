@@ -14,7 +14,7 @@ func (self *Handle) CreateCoolpcData(uuid string, payload []byte) error {
 
 	dbaReq, err := proto.Marshal(&dtomsg.Dto_Msg{
 		Type:    "notice",
-		Request: "createcoolpcdata",
+		Request: "create.coolpcdata",
 		Data:    payload,
 	})
 	if err != nil {
@@ -56,28 +56,29 @@ func (self *Handle) resChanLoadAndDelete(uuid string) (chan *dtomsg.Dto_Msg_Res,
 }
 
 func (self *Handle) CreateEfish(uuid string, payload []byte) error {
-	dbaReq, err := proto.Marshal(&dtomsg.Dto_Msg{
-		Type:    "notic",
-		Request: "createefish",
-		Data:    payload,
-	})
-	if err != nil {
-		panic(err)
-	}
+	return self.CommonCreate(uuid, "notice", "create.efish", payload)
+}
 
-	msg, err := util.MsgEncode(&dtomsg.Dto_Base{
-		UUID:           uuid,
-		StartTime:      util.ServerTimeNow().UnixMicro(),
-		ExpirationTime: util.ServerTimeNow().Add(5 * time.Second).UTC().UnixMicro(),
-		Payload:        dbaReq,
-	})
-	if err != nil {
-		panic(err)
-	}
+func (self *Handle) CreateStockAnalysis(uuid string, payload []byte) error {
+	return self.CommonCreate(uuid, "notice", "create.stockanalysis", payload)
+}
 
-	if err := self.websocket.Send(context.TODO(), msg); err != nil {
-		panic(err)
-	}
+func (self *Handle) CreateStockIndex(uuid string, payload []byte) error {
+	return self.CommonCreate(uuid, "notice", "create.stockindex", payload)
+}
 
-	return nil
+func (self *Handle) CreateStockMarket(uuid string, payload []byte) error {
+	return self.CommonCreate(uuid, "notice", "create.stockmarket", payload)
+}
+
+func (self *Handle) CreateStockClosePrice(uuid string, payload []byte) error {
+	return self.CommonCreate(uuid, "notice", "create.stockclosePrice", payload)
+}
+
+func (self *Handle) CreateStockThreefoundationTotal(uuid string, payload []byte) error {
+	return self.CommonCreate(uuid, "notice", "create.stockthreefoundationtotal", payload)
+}
+
+func (self *Handle) CreateThreefoundationStockDay(uuid string, payload []byte) error {
+	return self.CommonCreate(uuid, "notice", "create.stockthreefoundationstockday", payload)
 }

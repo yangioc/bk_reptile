@@ -66,6 +66,9 @@ func (self *Handle) messageSub() error {
 			case "getcoolpc":
 				self.GetCoolpc()
 
+			case "getstock":
+				self.GetStock()
+
 			}
 		}
 	}
