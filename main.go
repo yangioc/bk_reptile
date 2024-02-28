@@ -7,8 +7,10 @@ import (
 	"bk_reptile/model/msg_nats"
 	"bk_reptile/tmpproto/dtoschedule"
 	"context"
+	"crypto/tls"
 	"flag"
 	"fmt"
+	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
@@ -33,6 +35,9 @@ func main() {
 	if logLevel, ok := log.LevelToStringMap[config.EnvInfo.Log.Level]; ok {
 		log.Level = logLevel
 	}
+
+	// 測試用設定
+	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 
 	// messageq 介面
 	// type1
