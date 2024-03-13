@@ -42,24 +42,24 @@ func (self *Handle) GetCoolpc() {
 	}
 }
 
-func (self *Handle) GetEfish() {
+func (self *Handle) GetEfish(date time.Time) {
 	uuid := util.GenStrUUID(config.EnvInfo.NodeNum)
-
-	date := util.ServerTimeNow()
 
 	locations := []string{"F109", "F200", "F241", "F261", "F270", "F300", "F330", "F360", "F400", "F500", "F513", "F545", "F600", "F630", "F708", "F709", "F722", "F730", "F800", "F820", "F826", "F880", "F916", "F936", "F950"}
 
-	dataGroup := map[string]interface{}{
-		"_key": date.Format("20060102"),
-	}
-
+	locationGroup := map[string]interface{}{}
 	for _, location := range locations {
 		data, err := efish.GetDayFishByMarket(location, date)
 		if err != nil {
 			panic(err)
 		}
 
-		dataGroup[location] = data
+		locationGroup[location] = data
+	}
+
+	dataGroup := map[string]interface{}{
+		"_key":          date.Format("20060102"),
+		"LocationGroup": locationGroup,
 	}
 
 	payload, _ := util.Marshal(dataGroup)
@@ -68,20 +68,16 @@ func (self *Handle) GetEfish() {
 	}
 }
 
-func (self *Handle) GetOldEfish(fishId string, date_start, date_end time.Time) {
+func (self *Handle) GetOldEfish(date_start, date_end time.Time) {
 	if date_start.After(date_end) {
 		log.Error("GetOldEfish time error")
 		return
 	}
-	// date_start := time.Date(2024, 1, 1, 0, 0, 0, 0, time.Local)
-	// date_end := time.Date(2024, 1, 30, 0, 0, 0, 0, time.Local)
 
-	datas, err := efish.GetHistory(fishId, date_start, date_end)
-	if err != nil {
-		panic(err)
+	currentTime := date_start
+	for ; currentTime.Before(date_end); currentTime = currentTime.Add(time.Hour * 24) {
+		self.GetEfish(currentTime)
 	}
-
-	fmt.Println(datas)
 }
 
 func (self *Handle) GetStock() {

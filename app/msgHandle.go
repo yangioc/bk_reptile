@@ -58,7 +58,7 @@ func (self *Handle) messageSub() error {
 			// var dbaRes []byte
 			switch dtoMsg.Request {
 			case "getefish":
-				self.GetEfish()
+				self.GetEfish(util.ServerTimeNow())
 
 			case "getoldefish":
 				// self.GetOldEfish()

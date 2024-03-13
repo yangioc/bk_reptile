@@ -64,7 +64,9 @@ func main() {
 	// test
 	// time.Sleep(time.Second * 5)
 	// handle_app.GetCoolpc()
-	// handle_app.GetEfish()
+	// handle_app.GetEfish(util.ServerTimeNow())
+	// star := util.ServerTimeNow().AddDate(0, 0, -5)
+	// handle_app.GetOldEfish(star, util.ServerTimeNow())
 	// handle_app.GetOldEfish("1012", time.Date(2024, 2, 10, 0, 0, 0, 0, time.UTC), time.Date(2024, 2, 19, 0, 0, 0, 0, time.UTC))
 	// handle_app.GetStock()
 	///////
